@@ -1,33 +1,10 @@
-# home_sales
-INSTRUCTIONS:
-Rename the Home_Sales_starter_code.ipynb file as Home_Sales.ipynb.
+# spark-demo
 
-Import the necessary PySpark SQL functions for this assignment.
+## Purpose
+Housing data is loaded into a spark session and analyzed by running various queries. This notebook shows how to interact with distributed data sets as well as testing the speed of queries under different conditions.
 
-Read the home_sales_revised.csv data in the starter code into a Spark DataFrame.
+## Tools
+PySpark is the primary tool used to interact with the housing data set. PySpar is the Python API used to interact with Apache Spark which is a distributed computing framework for large-scale data analysis. PySpark lets users upload, manipulate, query and store data in a scalable way.
 
-Create a temporary table called home_sales.
-
-Answer the following questions using SparkSQL:
-  What is the average price for a four-bedroom house sold for each year? Round off your answer to two decimal places.
-  What is the average price of a home for each year it was built that has three bedrooms and three bathrooms? Round off your answer to two decimal places.
-  What is the average price of a home for each year that has three bedrooms, three bathrooms, two floors, and is greater than or equal to 2,000 square feet? Round off your answer to two decimal places.
-  What is the "view" rating for homes costing more than or equal to $350,000? Determine the run time for this query, and round off your answer to two decimal places.
-
-Cache your temporary table home_sales.
-
-Check if your temporary table is cached.
-
-Using the cached data, run the query that filters out the view ratings with an average price of greater than or equal to $350,000. Determine the runtime and compare it to uncached runtime.
-
-Partition by the "date_built" field on the formatted parquet home sales data.
-
-Create a temporary table for the parquet data.
-
-Run the query that filters out the view ratings with an average price of greater than or equal to $350,000. Determine the runtime and compare it to uncached runtime.
-
-Uncache the home_sales temporary table.
-
-Verify that the home_sales temporary table is uncached using PySpark.
-
-Download your Home_Sales.ipynb file and upload it into your "Home_Sales" GitHub repository.
+## Results
+Various queries are shown that break down average home prices by year for a variety of features. Then, the same query is run three times under different conditions: with an uncached table (stored in disk), a cached table (stored in memory) and on a table partitioned as a parquet table. The cached table had the shortest run time, while the uncached and parquet data were a close second and third, respectively. Given the small data set, the time differences are negligible.
